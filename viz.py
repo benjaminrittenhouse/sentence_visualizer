@@ -18,7 +18,33 @@ def main():
 			sentence = request.form['user_sentence']
 			pieces = [] # pieces of sentence init
 			pieces = parse_sentence(sentence)
-			return render_template('index_updated.html', subject = pieces[0], object = pieces[1], verb = pieces[2])
+			sj = str(pieces[0])
+			sj = sj[1:len(sj)-1]
+
+			oj = str(pieces[1])
+			oj = oj[1:len(oj)-1]
+
+			v = str(pieces[2])
+			v = v[1:len(v)-1]
+
+			rendered = ""
+
+			allwords = sentence.split(' ')
+			for word in allwords:
+				if word == sj:
+					rendered += "<span class = 'highlight'>" + sj + "</span>"
+				elif word == oj:
+					rendered += "<span class = 'highlight'>" + oj + "</span>"
+				elif word == v:
+					rendered += "<span class = 'highlight'>" + v + "</span>"
+				else:
+					rendered += word + " "
+
+
+			ret =  "<input name = \"user_sentence\" id = \"sentence\" type=\"sentence\" value=\"" + {{rendered}} + "\" />"
+
+
+			return render_template('index_updated.html', completed_input = ret)
 	else:
 		return render_template('index.html')
 
