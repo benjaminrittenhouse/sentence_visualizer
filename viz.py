@@ -4,32 +4,39 @@
 @Desc program to identify the structure of a sentence
 '''
 
+import spacy
 
-
-# FUNCTIONS ---- 
-
-# read in verbs from text file
-def read_verbs():
-	# opening the text file
-	verbs = []
-	with open('verbs.txt','r') as file:
-		for line in file:
-			for word in line.split():
-				verbs.append(word)
-
-	return verbs
-
-
-inp = ''
+nlp = spacy.load("en_core_web_lg")
 
 # MAIN
-
-verbs = []
-verbs = read_verbs()
+inp = ''
 
 while inp != "exit":
-	inp = raw_input("Enter a sentence:\n")
-	words = inp.split(' ')
-	for word in words:
-		if word in verbs:
-			print("Verb = " + word)
+	inp = input("Enter a sentence:\n")
+	#words = inp.split(' ')
+	
+	doc=nlp(inp)
+
+	subj = [tok for tok in doc if (tok.dep_ == "nsubj") ]
+	obj = [tok for tok in doc if (tok.dep_ == "dobj") ]
+	verb = [tok for tok in doc if (tok.dep_ == "ROOT") ]
+	
+
+	'''
+	print("Subject: ")
+	print(subj)
+	print("Object: ")
+	print(obj)
+	print("Verb: ")
+	print(verb)
+	'''
+
+
+
+
+
+
+
+
+
+
