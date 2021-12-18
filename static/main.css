@@ -22,3 +22,8 @@ input {
 input:focus {
 	outline: none;
 }
+
+
+.highlight {
+	background-color: yellow;
+}

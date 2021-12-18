@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Pure CSS import -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sentence Viz</title>
+  </head>
+
+  <body>
+
+  	<div class = "container">
+	  		<form class="pure-form" action ="" method="POST">
+		    	<fieldset>
+			        <input name = "user_sentence" id = "sentence" type="sentence" placeholder="{{subject}} {{object}} {{verb}}" />
+		    	</fieldset>
+			</form>
+  	</div>
+
+  </body>
+
+  <script>
+    function highlight() {
+      var subj = "{{subject}}";
+      var obj = "{{subject}}";
+      var inputText = document.getElementById("sentence");
+      var innerHTML = inputText.innerHTML;
+      var index = innerHTML.indexOf(text);
+      if (index >= 0) { 
+       innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+text.length) + "</span>" + innerHTML.substring(index + text.length);
+       inputText.innerHTML = innerHTML;
+      }
+  }
+  </script>
+
+</html>
