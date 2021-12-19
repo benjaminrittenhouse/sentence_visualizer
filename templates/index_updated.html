@@ -12,53 +12,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Sentence Viz</title>
+
   </head>
 
   <body>
 
   	<div class = "container">
-	  		<form class="pure-form" action ="" method="POST">
+	  		<form class="pure-form" action ="" method="POST" id = "form_focus">
 		    	<fieldset>
             {{completed_input | safe}}
 			       <!-- <input name = "user_sentence" id = "sentence" type="sentence" placeholder="{{subject}} {{object}} {{verb}}" />-->
+
+             
 		    	</fieldset>
+
+          <div id = "hide_me" onclick="new_sentence()">
+                {{overlay | safe}}
+          </div>
 			</form>
   	</div>
+
+
 
   </body>
 
   <script>
-    function highlight(text) {
-      var subj = "{{subject}}";
-      var obj = "{{object}}";
-      var verb = "{{verb}}"
-      var inputText = document.getElementById("sentence");
-      var innerHTML = inputText.innerHTML;
-
-      var s_i = innerHTML.indexOf(subj);
-      var o_i = innerHTML.indexOf(obj);
-      var v_i = innerHTML.indexOf(verb);
-
-      const indicies = [s_i, o_i, v_i]; // sort by first occurence
-      indicies.sort();
-      var ordered_items = [];
-
-      // corresponding sort of the vars at beginning
-      for(var i = 0; i < indicies.length, i++){
-          if(indicies[i] == innerHTML.indexOf(subj)){
-            ordered_items.push(subj);
-          } else if (indicies[i] == innerHTML.indexOf(obj)){
-            ordered_items.push(obj);
-          } else if (indicies[i] == innerHTML.indexOf(verb)){
-            ordered_items.push(verb);
-          }
-      }
-      
-      
-      // first item, then second, etc.
-      innerHTML = "s";
-      inputText.innerHTML = innerHTML;
-  }
+    function new_sentence() {
+         $('#hide_me').css('visibility', 'hidden');
+         //$('#sentence').focus();
+    }
   </script>
 
 </html>

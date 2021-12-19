@@ -32,19 +32,23 @@ def main():
 			allwords = sentence.split(' ')
 			for word in allwords:
 				if word == sj:
-					rendered += "<span class = 'highlight'>" + sj + "</span>"
+					rendered += "<span class = 'subj'>" + sj + "</span> "
+					print("Word: " + word + " SJ")
 				elif word == oj:
-					rendered += "<span class = 'highlight'>" + oj + "</span>"
+					rendered += "<span class = 'obj'>" + oj + "</span> "
+					print("Word: " + word + " OJ")
 				elif word == v:
-					rendered += "<span class = 'highlight'>" + v + "</span>"
+					rendered += "<span class = 'verb'>" + v + "</span> "
+					print("Word: " + word + " VERB")
 				else:
 					rendered += word + " "
+					print("Word: " + word + " OTHER")
 
 
-			ret =  "<input name = \"user_sentence\" id = \"sentence\" type=\"sentence\" value=\"" + {{rendered}} + "\" />"
+			ret = rendered
 
 
-			return render_template('index_updated.html', completed_input = ret)
+			return render_template('index_updated.html', overlay = ret)
 	else:
 		return render_template('index.html')
 
