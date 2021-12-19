@@ -21,11 +21,14 @@ def main():
 			sj = str(pieces[0])
 			sj = sj[1:len(sj)-1]
 
-			oj = str(pieces[1])
-			oj = oj[1:len(oj)-1]
+			doj = str(pieces[1])
+			doj = doj[1:len(doj)-1]
 
 			v = str(pieces[2])
 			v = v[1:len(v)-1]
+
+			poj = str(pieces[3])
+			poj = poj[1:len(poj)-1]
 
 			rendered = ""
 
@@ -34,12 +37,14 @@ def main():
 				if word == sj:
 					rendered += "<span class = 'subj'>" + sj + "</span> "
 					print("Word: " + word + " SJ")
-				elif word == oj:
-					rendered += "<span class = 'obj'>" + oj + "</span> "
+				elif word == doj:
+					rendered += "<span class = 'dobj'>" + doj + "</span> "
 					print("Word: " + word + " OJ")
 				elif word == v:
 					rendered += "<span class = 'verb'>" + v + "</span> "
 					print("Word: " + word + " VERB")
+				elif word == poj:
+					rendered += "<span class = 'pobj'>" + poj + "</span> "
 				else:
 					rendered += word + " "
 					print("Word: " + word + " OTHER")
@@ -62,13 +67,15 @@ def parse_sentence(s):
 	doc=nlp(s)
 
 	subj = [tok for tok in doc if (tok.dep_ == "nsubj") ]
-	obj = [tok for tok in doc if (tok.dep_ == "dobj") ]
+	dobj = [tok for tok in doc if (tok.dep_ == "dobj") ]
 	verb = [tok for tok in doc if (tok.dep_ == "ROOT") ]
+	pobj = [tok for tok in doc if (tok.dep_ == "pobj") ]
 
 	ret = []
 	ret.append(subj)
-	ret.append(obj)
+	ret.append(dobj)
 	ret.append(verb)
+	ret.append(pobj)
 
 	return ret
 
