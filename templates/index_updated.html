@@ -13,20 +13,33 @@
 
     <title>Sentence Viz</title>
 
+
+    <script>
+      function sent() {
+         var elem = document.getElementById('hide_me');
+         elem.style.visibility = 'hidden';
+
+         var elem2 = document.getElementById('sentence');
+         elem2.focus();
+
+      }
+    </script>
+
   </head>
+
 
   <body>
 
   	<div class = "container">
 	  		<form class="pure-form" action ="" method="POST" id = "form_focus">
 		    	<fieldset>
-            {{completed_input | safe}}
-			       <!-- <input name = "user_sentence" id = "sentence" type="sentence" placeholder="{{subject}} {{object}} {{verb}}" />-->
+            <!--{{completed_input | safe}}-->
+			       <input name = "user_sentence" id = "sentence" type="sentence" placeholder="">
 
              
 		    	</fieldset>
 
-          <div id = "hide_me" onclick="new_sentence()">
+          <div id = "hide_me" onclick="sent();">
                 {{overlay | safe}}
           </div>
 			</form>
@@ -35,12 +48,5 @@
 
 
   </body>
-
-  <script>
-    function new_sentence() {
-         $('#hide_me').css('visibility', 'hidden');
-         //$('#sentence').focus();
-    }
-  </script>
 
 </html>
