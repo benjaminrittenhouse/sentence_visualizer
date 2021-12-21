@@ -49,3 +49,28 @@ input:focus {
   top: 44%;
   left: 24%;
 }
+
+#red {
+	color: red;
+}
+
+#yellow {
+	color: yellow;
+}
+
+#blue {
+	color: blue;
+}
+
+#green {
+	color: green;
+}
+
+#colors {
+  font-size: 5vh;
+  text-align: center;
+  position: absolute;
+  align-items: center;
+  top: 22%;
+  left: 5%;
+}
