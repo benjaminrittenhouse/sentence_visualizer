@@ -1,3 +1,6 @@
+# Demonstration
+Please see the demo .mov file to watch the website in action.
+
 # sentence_visualizer
 
 The goal of this project was to create a webapp that lets a user enter sentences that are then parsed and highlighted to show them the different parts of the sentence. This includes the verb, subject, object, etc. 
