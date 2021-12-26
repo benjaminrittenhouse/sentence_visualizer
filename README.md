@@ -9,7 +9,7 @@ The goal of this project was to create a webapp that lets a user enter sentences
 
 The flask framework was used along with Python HTML and CSS. The python parses the sentence using the spaCy module to find verbs, nouns, and adjectives. Once these items are found, we note where they occur in the sentence.
 
-Using flask we pass these values back to the HTML side to a div with the respective CSS. Ex. the verb is higlighted red. 
+Using flask we pass these values back to the HTML side to a div with the respective CSS. Ex. the verb is higlighted red. This is done by sending an updated page, using flask, with the render function. The rendered page mantains the option to write another sentence as well as see the outputted sentence, highlighted.
 
 # purpose
 
